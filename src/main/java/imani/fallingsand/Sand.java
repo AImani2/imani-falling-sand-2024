@@ -24,12 +24,27 @@ public class Sand {
     }
 
     public void fall() {
-        // watch a video
-        // moves all sand down one square
-        // sand cant move if it is on the bottom
-        // sand cant move if something is below it
-        // only move one space at a time
-        // all has to be inside this method
+
+        int[][] newField = new int[3][3];
+
+        for (int y = 0; y < 3; y++) {
+            for (int x = 0; x < 3; x++) {
+                if (y != 2) {
+                    if (field[y][x] == 1) {
+                        newField[y][x] = 1;
+                        if (field[y + 1][x] == 0) {
+                            newField[y][x] = 0;
+                            newField[y + 1][x] = 1;
+                        }
+                        else {
+                            newField[y + 1][x] = 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        field = newField;
 
     }
 }
