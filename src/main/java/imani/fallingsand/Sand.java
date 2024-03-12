@@ -1,10 +1,24 @@
 package imani.fallingsand;
 
+import java.util.Random;
+
 public class Sand {
     private int[][] field;
 
+    private final Random random;
+
     public Sand(int width, int height) {
         field = new int[height][width];
+        this.random = new Random();
+    }
+
+    public Sand(int width, int height, Random random) {
+        field = new int[height][width];
+        this.random = random;
+    }
+
+    public static void main(String[] args) {
+
     }
 
     public String toString() {
@@ -27,15 +41,37 @@ public class Sand {
         field[y][x] = 1;
     }
 
+    public void randomSand(int n) {
+
+    }
+
     public void fall() {
 
         int[][] newField = new int[3][3];
 
+        // moves all sand down one square
         for (int y = field.length - 2; y >= 0; y--) {
             for (int x = 0; x < field[y].length; x++) {
-                if (field[y][x] == 1 && field[y + 1][x] == 0) {
-                    field[y + 1][x] = 1;
-                    field[y][x] = 0;
+
+                if (field[y][x] == 1) {
+                    // does the sand fall straight down?
+                    if (field[y + 1][x] == 0) {
+                        field[y][x] = 0;
+                        field[y + 1][x] = 1;
+                        continue;
+                    }
+
+                    boolean rightFirst = random.nextBoolean();
+                    int direction1 = rightFirst ? +1 : -1;
+                    int direction2 = rightFirst ? -1 : +1;
+
+                    if (field[y + 1][x + direction1] == 0) {
+                        field[y][x] = 0;
+                        field[y + 1][x + direction1] = 1;
+                    } else if (field[y + 1][x + direction2] == 0) {
+                        field[y][x] = 0;
+                        field[y + 1][x + direction2] = 1;
+                    }
                 }
             }
         }
@@ -49,6 +85,14 @@ public class Sand {
 // dont want to touch the bottom row
 // gradle: id 'checkstlyle' reload
 // make it configurable
+// dont forget to change branches back
+// fall simultaneously?
+// right and left need to be exclusive of each other
+// tests that sometimes pass and sometimes fail
+// mockito
+// tell gradle that i want to use mockito
+// refactor extract method
 
-
+// hw - a GUI method called randomSand
+// that adds random sand to da field
 
