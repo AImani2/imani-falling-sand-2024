@@ -3,7 +3,7 @@ package imani.fallingsand;
 import java.util.Random;
 
 public class Sand {
-    private int[][] field;
+    private final int[][] field;
 
     private final Random random;
 
@@ -15,10 +15,6 @@ public class Sand {
     public Sand(int width, int height, Random random) {
         field = new int[height][width];
         this.random = random;
-    }
-
-    public static void main(String[] args) {
-
     }
 
     public String toString() {
@@ -42,7 +38,9 @@ public class Sand {
     }
 
     public void randomSand(int n) {
-
+        for (int i = 0; i <= n; i++) {
+            field[random.nextInt(field.length)][random.nextInt(field[0].length)] = 1;
+        }
     }
 
     public void fall() {
