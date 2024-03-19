@@ -17,7 +17,7 @@ public class SandComponent extends JComponent {
         super.paintComponent(g);
 
         // first I have to create the field
-        sand = new Sand(1000, 1000);
+        // sand = new Sand(1000, 1000);
 
         g.drawRect(0, 0, 1000, 1000);
         // then I have to use random sand to populate it
