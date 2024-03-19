@@ -15,5 +15,7 @@ public class Main {
             sand.fall();
             System.out.println(sand.toString());
         }
+
+        new SandFrame().setVisible(true);
     }
 }
