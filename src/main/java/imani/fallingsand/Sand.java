@@ -68,10 +68,12 @@ public class Sand {
                     int direction2 = rightFirst ? -1 : +1;
 
                     // how does this check the bounds?
-                    if ((x + direction1) >= 0 && (x + direction1) < field[y].length && field[y + 1][x + direction1] == 0) {
+                    if ((x + direction1) >= 0 && (x + direction1)
+                            < field[y].length && field[y + 1][x + direction1] == 0) {
                         field[y][x] = 0;
                         field[y + 1][x + direction1] = 1;
-                    } else if ((x + direction2) >= 0 && (x + direction2) < field[y].length && field[y + 1][x + direction2] == 0) {
+                    } else if ((x + direction2) >= 0 && (x + direction2)
+                            < field[y].length && field[y + 1][x + direction2] == 0) {
                         field[y][x] = 0;
                         field[y + 1][x + direction2] = 1;
                     }
@@ -81,20 +83,3 @@ public class Sand {
     }
 }
 
-
-// settings actions on save - reformat optimize rearrange
-// do it backwards
-// intellij plugin checkstyles
-// dont want to touch the bottom row
-// gradle: id 'checkstlyle' reload
-// make it configurable
-// dont forget to change branches back
-// fall simultaneously?
-// right and left need to be exclusive of each other
-// tests that sometimes pass and sometimes fail
-// mockito
-// tell gradle that i want to use mockito
-// refactor extract method
-
-// hw - a GUI method called randomSand
-// that adds random sand to da field

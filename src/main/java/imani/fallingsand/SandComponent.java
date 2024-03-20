@@ -30,8 +30,5 @@ public class SandComponent extends JComponent {
                 }
             }
         }
-        // as it is being put, I have to call fall
-        // mouse component?
-        // do this using the methods I created
     }
 }
