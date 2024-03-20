@@ -3,9 +3,13 @@ package imani.fallingsand;
 import java.util.Random;
 
 public class Sand {
-    private final int[][] field;
 
+    private final int[][] field;
     private final Random random;
+
+    public int[][] getField() {
+        return field;
+    }
 
     public Sand(int width, int height) {
         field = new int[height][width];
