@@ -22,7 +22,7 @@ public class SandComponent extends JComponent {
         g.drawRect(0,  0, getWidth(), getHeight());
         // then I have to use random sand to populate it
         int[][] field = sand.getField();
-        for (int y = field.length; y >= 0; y--) {
+        for (int y = field.length - 1; y >= 0; y--) {
             for (int x = 0; x < field[y].length; x++) {
                 if (field[y][x] == 1)
                 {
