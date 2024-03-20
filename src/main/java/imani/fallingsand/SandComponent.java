@@ -26,7 +26,7 @@ public class SandComponent extends JComponent {
             for (int x = 0; x < field[y].length; x++) {
                 if (field[y][x] == 1)
                 {
-                    g.fillRect(x, y, 5, 5);
+                    g.fillRect(x, y, 3, 3);
                 }
             }
         }
