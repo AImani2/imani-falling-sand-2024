@@ -169,6 +169,55 @@ class SandTest {
         // then
         assertEquals("000\n001\n011\n", sand.toString());
     }
-}
 
-// everywhere you access field - outside of sand will access field only through get put and tostring
+    @Test
+    public void resizeSmaller() {
+        //given
+        Sand sand = new Sand(3, 3);
+        sand.put(1, 1);
+
+        //when
+        sand.resize(2, 2);
+
+        //then
+        assertEquals("00\n01\n", sand.toString());
+    }
+
+
+    @Test
+    public void resizeLarger() {
+        //given
+        Sand sand = new Sand(2, 2);
+        sand.put(1, 1);
+
+        //when
+        sand.resize(3, 3);
+
+        //then
+        assertEquals("000\n010\n000\n", sand.toString());
+    }
+
+    @Test
+    public void load() {
+        //given
+        Sand sand = new Sand(3, 3);
+        sand.put(0, 0);
+
+        //when
+        sand.load("000\n010\n000\n");
+
+        //then
+        assertEquals("000\n010\n000\n", sand.toString());
+    }
+
+    public void putMultiple() {
+        //given
+        Sand sand = new Sand(5, 5);
+
+        //when
+        sand.put(1, 1, 2, 2, 1.00);
+
+        //then
+        assertEquals("00000\n01110\n01110\n00000\n", sand.toString());
+    }
+}
